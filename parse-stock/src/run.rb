@@ -13,7 +13,7 @@ require 'json'
 # 	)
 # )
 
-Dir.mkdir('data')
+Dir.mkdir('data') unless File.exists?('data')
 
 IO.write(
 	"./data/out-#{Time.now.strftime('%Y-%m-%d')}.json",
@@ -56,7 +56,7 @@ IO.write(
 				"MACD.macd","MACD.signal"
 			],
 			"sort":{"sortBy":"market_cap_basic","sortOrder":"desc"},
-			"range":[0,150]
+			"range":[0,400]
 		
 		}.to_json, 
 		headers={}
